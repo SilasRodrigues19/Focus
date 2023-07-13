@@ -1,0 +1,11 @@
+---
+export interface Props {
+	btnText: string;
+	btnId: string;
+	btnClass: string;
+}
+
+const { btnClass, btnText, btnId } = Astro.props;
+---
+
+<button class={btnClass} id={btnId}>{btnText}</button>
