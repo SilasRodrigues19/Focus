@@ -118,15 +118,15 @@ Project Link: [https://github.com/SilasRodrigues19/Focus](https://github.com/Sil
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
-[contributors-shield]: https://img.shields.io/github/contributors/SilasRodrigues19/ContactForm.svg?style=for-the-badge
+[contributors-shield]: https://img.shields.io/github/contributors/SilasRodrigues19/Focus.svg?style=for-the-badge
 [contributors-url]: https://github.com/SilasRodrigues19/Focus/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/SilasRodrigues19/ContactForm.svg?style=for-the-badge
+[forks-shield]: https://img.shields.io/github/forks/SilasRodrigues19/Focus.svg?style=for-the-badge
 [forks-url]: https://github.com/SilasRodrigues19/Focus/network/members
-[stars-shield]: https://img.shields.io/github/stars/SilasRodrigues19/ContactForm.svg?style=for-the-badge
+[stars-shield]: https://img.shields.io/github/stars/SilasRodrigues19/Focus.svg?style=for-the-badge
 [stars-url]: https://github.com/SilasRodrigues19/Focus/stargazers
-[issues-shield]: https://img.shields.io/github/issues/SilasRodrigues19/ContactForm.svg?style=for-the-badge
+[issues-shield]: https://img.shields.io/github/issues/SilasRodrigues19/Focus.svg?style=for-the-badge
 [issues-url]: https://github.com/SilasRodrigues19/Focus/issues
-[license-shield]: https://img.shields.io/github/license/SilasRodrigues19/ContactForm.svg?style=for-the-badge
+[license-shield]: https://img.shields.io/github/license/SilasRodrigues19/Focus.svg?style=for-the-badge
 [license-url]: https://github.com/SilasRodrigues19/Focus/blob/master/LICENSE
 [license-url]: https://github.com/SilasRodrigues19/Focus/blob/master/LICENSE.txt
 [product-screenshot]: ./public/screenshots/preview.png
