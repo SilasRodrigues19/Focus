@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .break-time-btn {
+    @apply mt-4 px-6 py-3 text-lg text-gray-100 border-2 border-gray-300 rounded-lg bg-transparent transition duration-300 ease-in-out focus:bg-white focus:text-gray-900 hover:bg-gray-100 hover:text-gray-900 disabled:opacity-50 disabled:cursor-not-allowed disabled:bg-transparent disabled:text-white;
+  }
+  .controls-btn {
+    @apply tracking-wider mt-4 px-8 py-3 text-lg text-gray-100 border-2 border-gray-300 rounded-lg bg-transparent transition duration-300 ease-in-out hover:bg-gray-100 hover:text-gray-900;
+  }
+}
+
+.timer {
+  font-size: 4rem;
+  color: #f3f4f6;
+}
+
+.progress-bar {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 5px;
+  width: 100%;
+  background: #4b5563;
+}
+
+.progress {
+  height: 100%;
+  background: #f3f4f6;
+  width: 0;
+  transition: width 1s linear;
+}
+
+.custom-toast {
+  background: transparent;
+  border: 1px solid #fff;
+  border-radius: 3px;
+  color: #fff;
+}
+
+.custom-toast .toastify-content {
+  padding: 10px;
+}
+
+.animate {
+  animation: shake 0.5s;
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
