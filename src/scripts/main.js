@@ -18,6 +18,7 @@ let interval;
 let isPaused = false;
 let isRunning = false;
 let selectedTime = null;
+let selectedInterval = '';
 
 const formatTime = (time) => {
   const minutes = Math.floor(time / 60);
@@ -45,8 +46,12 @@ const updateInformation = () => {
     '15:00': 'Long break',
   };
 
-  pageTitle.innerHTML = breakTimes[formattedTime] || '';
+  const dynamicText = selectedInterval
+    ? `Performing ${selectedInterval}`
+    : 'Choose the break time to focus';
+  pageTitle.innerHTML = breakTimes[formattedTime] || dynamicText;
 };
+
 
 const startTimer = () => {
   clearInterval(interval);
@@ -92,6 +97,7 @@ const stopTimer = () => {
   selectedTime = null;
   time = 0;
   selectTime('not chosen');
+  selectedInterval = '';
 };
 
 const showNotification = (body) => {
@@ -130,7 +136,7 @@ playPauseButton.addEventListener('click', () => {
         animateButton();
         if (!isTimingToastActive) {
           Toastify({
-            text: 'Selecione o tempo desejado',
+            text: 'Choose the break time',
             duration: 3000,
             gravity: 'top',
             position: 'right',
@@ -153,7 +159,7 @@ playPauseButton.addEventListener('click', () => {
         disableButtons();
         if (permission === 'granted') {
           Toastify({
-            text: 'Permissão de notificação concedida',
+            text: 'Notification permission granted',
             duration: 3000,
             gravity: 'top',
             position: 'right',
@@ -163,7 +169,7 @@ playPauseButton.addEventListener('click', () => {
           }).showToast();
         } else {
           Toastify({
-            text: 'Permissão de notificação não concedida',
+            text: 'Notification permission not granted',
             duration: 3000,
             gravity: 'top',
             position: 'right',
@@ -206,6 +212,7 @@ shortTimeButton.addEventListener('click', () => {
     time = duration;
     timerElement.textContent = formatTime(time);
     selectTime('short');
+    selectedInterval = 'Short break';
     updateInformation();
   }
 });
@@ -216,6 +223,7 @@ mediumTimeButton.addEventListener('click', () => {
     time = duration;
     timerElement.textContent = formatTime(time);
     selectTime('medium');
+    selectedInterval = 'Medium break';
     updateInformation();
   }
 });
@@ -226,6 +234,7 @@ longTimeButton.addEventListener('click', () => {
     time = duration;
     timerElement.textContent = formatTime(time);
     selectTime('long');
+    selectedInterval = 'Long break';
     updateInformation();
   }
 });
