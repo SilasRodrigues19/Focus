@@ -75,19 +75,19 @@ Technologies used in the project.
    ```git
    git clone https://github.com/SilasRodrigues19/Focus.git
    ```
-2. Access the folder with the following command: 
-    ```sh
-    cd Focus
-    ```
+2. Access the folder with the following command:
+   ```sh
+   cd Focus
+   ```
 3. Install dependencies
    ```sh
    npm install
    ```
 4. In the project directory, you can run with the following command:
 
-  ```sh
-    npm run dev
-  ```
+```sh
+  npm run dev
+```
 
 <!-- CONTRIBUTING -->
 
