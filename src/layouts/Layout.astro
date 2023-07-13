@@ -14,8 +14,54 @@ import '../styles/style.css';
     <link rel='preconnect' href='https://fonts.googleapis.com' />
     <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
     <meta charset='UTF-8' />
-    <meta name='description' content='Astro description' />
+    <meta
+      name='description'
+      content='A simple timer project with system notification'
+    />
     <meta name='viewport' content='width=device-width' />
+
+    <!-- Facebook metatags -->
+    <meta property='og:title' content={title} />
+    <meta
+      property='og:description'
+      content='A simple timer project with system notification'
+    />
+    <meta
+      property='og:image'
+      content='https://github.com/SilasRodrigues19/Focus/blob/main/public/screenshots/preview.png'
+    />
+    <meta property='og:url' content='https://focus-x.vercel.app/' />
+    <meta property='og:type' content='website' />
+
+    <!-- Twitter metatags -->
+    <meta name='twitter:card' content='summary_large_image' />
+    <meta name='twitter:title' content={title} />
+    <meta
+      name='twitter:description'
+      content='A simple timer project with system notification'
+    />
+    <meta
+      name='twitter:image'
+      content='https://github.com/SilasRodrigues19/Focus/blob/main/public/screenshots/preview.png'
+    />
+
+    <!-- LinkedIn metatags -->
+    <meta property='og:title' content={title} />
+    <meta
+      property='og:description'
+      content='A simple timer project with system notification'
+    />
+    <meta
+      property='og:image'
+      content='https://github.com/SilasRodrigues19/Focus/blob/main/public/screenshots/preview.png'
+    />
+    <meta property='og:url' content='https://focus-x.vercel.app/' />
+    <meta property='og:type' content='website' />
+
+    <meta property='og:site_name' content='Focus' />
+    <meta property='og:locale' content='pt_BR' />
+    <meta name='keywords' content='timer, pomodoro' />
+
     <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
     <meta name='generator' content={Astro.generator} />
     <link
@@ -27,9 +73,13 @@ import '../styles/style.css';
       rel='stylesheet'
       href='https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css'
     />
+    <link rel='canonical' href='https://focus-x.vercel.app/' />
   </head>
   <body class='bg-gray-darker font-poppins relative z-1'>
-    <div class="absolute inset-0 bg-clock-bg bg-no-repeat bg-contain bg-center opacity-5 -z-10"></div>
+    <div
+      class='absolute inset-0 bg-clock-bg bg-no-repeat bg-contain bg-center opacity-5 -z-10'
+    >
+    </div>
     <slot />
     <script defer src='https://cdn.jsdelivr.net/npm/toastify-js'></script>
     <script src='../scripts/main.js'></script>

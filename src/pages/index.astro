@@ -3,26 +3,48 @@ import Layout from '../layouts/Layout.astro';
 import Button from '../components/Button.astro';
 ---
 
-<Layout title="00:00 - Focus">
-	<main class="min-h-screen h-full w-full">
-		<div class="progress-bar">
-    <div class="progress" id="progress"></div>
-  </div>
-
-  <div class="container min-h-screen h-full flex items-center justify-center flex-col mx-auto">
-    <h1 class="text-2xl text-white font-semibold tracking-widest" id="pageTitle">Choose the break time to focus</h1>
-    <div class="timer tracking-widest font-normal" id="timer">00:00</div>
-    <div>
-			<Button btnClass="controls-btn" btnId="playPauseButton" btnText="Play" />
-			<Button btnClass="controls-btn" btnId="stopButton" btnText="Stop" />
+<Layout title='00:00 - Focus'>
+  <main class='min-h-screen h-full w-full'>
+    <div class='progress-bar'>
+      <div class='progress' id='progress'></div>
     </div>
-    <br>
-    <div class="flex gap-4">
-			<Button btnClass="break-time-btn focus:ring-2 focus:ring-offset-1 focus:ring-white" btnId="shortTimeButton" btnText="Short" />
-			<Button btnClass="break-time-btn focus:ring-2 focus:ring-offset-1 focus:ring-white" btnId="mediumTimeButton" btnText="Medium" />
-			<Button btnClass="break-time-btn focus:ring-2 focus:ring-offset-1 focus:ring-white" btnId="longTimeButton" btnText="Long" />
-    </div>
-  </div>
 
-	</main>
+    <div
+      class='container min-h-screen h-full flex items-center justify-center flex-col mx-auto'
+    >
+      <h1
+        class='text-2xl text-white font-semibold tracking-widest'
+        id='pageTitle'
+      >
+        Choose the break time to focus
+      </h1>
+      <div class='timer tracking-widest font-normal' id='timer'>00:00</div>
+      <div>
+        <Button
+          btnClass='controls-btn'
+          btnId='playPauseButton'
+          btnText='Play'
+        />
+        <Button btnClass='controls-btn' btnId='stopButton' btnText='Stop' />
+      </div>
+      <br />
+      <div class='flex gap-4'>
+        <Button
+          btnClass='break-time-btn focus:ring-2 focus:ring-offset-1 focus:ring-white'
+          btnId='shortTimeButton'
+          btnText='Short'
+        />
+        <Button
+          btnClass='break-time-btn focus:ring-2 focus:ring-offset-1 focus:ring-white'
+          btnId='mediumTimeButton'
+          btnText='Medium'
+        />
+        <Button
+          btnClass='break-time-btn focus:ring-2 focus:ring-offset-1 focus:ring-white'
+          btnId='longTimeButton'
+          btnText='Long'
+        />
+      </div>
+    </div>
+  </main>
 </Layout>
