@@ -20,7 +20,7 @@ let isRunning = false;
 let selectedTime = null;
 let selectedInterval = '';
 
-const formatTime = (time) => {
+const formatTimeToMinutesAndSeconds = (time) => {
   const minutes = Math.floor(time / 60);
   const seconds = time % 60;
 
@@ -30,13 +30,25 @@ const formatTime = (time) => {
   return `${formattedMinutes}:${formattedSeconds}`;
 };
 
+const formatTimeToMinutesAndSecondsWithText = (time) => {
+  const minutes = Math.floor(time / 60);
+  const seconds = time % 60;
+
+  const formattedMinutes = minutes.toString().padStart(2, '0');
+  const formattedSeconds = seconds.toString().padStart(2, '0');
+
+  return seconds === 0
+    ? `${formattedMinutes} minutes`
+    : `${formattedMinutes} minutes and ${formattedSeconds} seconds`;
+};
+
 const setProgress = (time, duration) => {
   const progress = (1 - time / duration) * 100;
   progressElement.style.width = `${progress}%`;
 };
 
 const updateInformation = () => {
-  const formattedTime = formatTime(time);
+  const formattedTime = formatTimeToMinutesAndSeconds(time);
   document.title = `${formattedTime} - Focus`;
 
   const breakTimes = {
@@ -52,23 +64,54 @@ const updateInformation = () => {
   pageTitle.innerHTML = breakTimes[formattedTime] || dynamicText;
 };
 
+const showNotification = (body) => {
+  if (!('Notification' in window)) {
+    Toastify({
+      text: "This browser doesn't support notifications.",
+      duration: 3000,
+      gravity: 'top',
+      position: 'right',
+      backgroundColor: 'transparent',
+      className: 'custom-toast',
+      stopOnFocus: true,
+    }).showToast();
+  } else {
+    Notification.requestPermission()
+      .then((permission) => permission === 'granted')
+      .then((isGranted) => {
+        if (isGranted) {
+          const notification = new Notification('Focus Timer', {
+            body: body,
+            icon: '../../public/coffee.svg',
+            vibrate: [200, 100, 200],
+          });
+        }
+      });
+  }
+};
+
 
 const startTimer = () => {
   clearInterval(interval);
 
   setProgress(time, duration);
-  timerElement.textContent = formatTime(time);
+  timerElement.textContent = formatTimeToMinutesAndSeconds(time);
 
   interval = setInterval(() => {
     if (!isPaused) {
       time--;
       setProgress(time, duration);
-      timerElement.textContent = formatTime(time);
+      timerElement.textContent = formatTimeToMinutesAndSeconds(time);
+
+      const notificationTimes = getNotificationTimes(duration);
+      if (notificationTimes.includes(time)) {
+        showNotification(`${formatTimeToMinutesAndSecondsWithText(time)} left`);
+      }
 
       if (time <= 0) {
         clearInterval(interval);
         progressElement.style.width = '0';
-        showNotification('O tempo acabou!');
+        showNotification('The time is over!');
         stopTimer();
       }
     }
@@ -100,22 +143,17 @@ const stopTimer = () => {
   selectedInterval = '';
 };
 
-const showNotification = (body) => {
-  if (!('Notification' in window)) {
-    alert('Este navegador não suporta notificações.');
-  } else if (Notification.permission === 'granted') {
-    const notification = new Notification('Focus Timer', {
-      body: body,
-    });
-  } else if (Notification.permission !== 'denied') {
-    Notification.requestPermission().then(function (permission) {
-      if (permission === 'granted') {
-        const notification = new Notification('Focus Timer', {
-          body: body,
-        });
-      }
-    });
+const getNotificationTimes = (duration) => {
+  const interval = 30;
+  const notificationTimes = [];
+  let remainingTime = duration;
+
+  while (remainingTime > interval) {
+    remainingTime -= interval;
+    notificationTimes.push(remainingTime);
   }
+
+  return notificationTimes;
 };
 
 let isTimingToastActive = false;
@@ -210,7 +248,7 @@ shortTimeButton.addEventListener('click', () => {
   if (!isRunning) {
     duration = shortTime * 60;
     time = duration;
-    timerElement.textContent = formatTime(time);
+    timerElement.textContent = formatTimeToMinutesAndSeconds(time);
     selectTime('short');
     selectedInterval = 'Short break';
     updateInformation();
@@ -221,7 +259,7 @@ mediumTimeButton.addEventListener('click', () => {
   if (!isRunning) {
     duration = mediumTime * 60;
     time = duration;
-    timerElement.textContent = formatTime(time);
+    timerElement.textContent = formatTimeToMinutesAndSeconds(time);
     selectTime('medium');
     selectedInterval = 'Medium break';
     updateInformation();
@@ -232,7 +270,7 @@ longTimeButton.addEventListener('click', () => {
   if (!isRunning) {
     duration = longTime * 60;
     time = duration;
-    timerElement.textContent = formatTime(time);
+    timerElement.textContent = formatTimeToMinutesAndSeconds(time);
     selectTime('long');
     selectedInterval = 'Long break';
     updateInformation();
