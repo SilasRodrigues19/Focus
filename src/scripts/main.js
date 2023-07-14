@@ -82,7 +82,7 @@ const showNotification = (body) => {
         if (isGranted) {
           const notification = new Notification('Focus Timer', {
             body: body,
-            icon: '../../public/coffee.svg',
+            icon: '/coffee.svg',
             vibrate: [200, 100, 200],
           });
         }
