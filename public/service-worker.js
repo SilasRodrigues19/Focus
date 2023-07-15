@@ -4,13 +4,8 @@ self.addEventListener('install', function (e) {
       return cache.addAll([
         '/coffee.svg',
         '/favicon.svg',
-<<<<<<< HEAD
         //'/src/scripts/main.js',
         //'/src/styles/style.css',
-=======
-        '/assets/scripts/main.js',
-        '/assets/styles/style.css',
->>>>>>> 168f52b374c2bf2ddf6e8e4a3af8070f15d9b011
       ]);
     })
   );
@@ -29,7 +24,6 @@ self.addEventListener('activate', function (e) {
     })
   );
 });
-
 
 self.addEventListener('fetch', function (e) {
   e.respondWith(

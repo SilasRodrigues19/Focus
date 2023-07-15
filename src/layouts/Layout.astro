@@ -5,7 +5,7 @@ export interface Props {
 
 const { title } = Astro.props;
 
-import '../../assets/styles/style.css';
+import '../styles/style.css';
 ---
 
 <!DOCTYPE html>
@@ -82,6 +82,6 @@ import '../../assets/styles/style.css';
     </div>
     <slot />
     <script defer src='https://cdn.jsdelivr.net/npm/toastify-js'></script>
-    <script src='../../assets/scripts/main.js'></script>
+    <script src='../scripts/main.js'></script>
   </body>
 </html>
