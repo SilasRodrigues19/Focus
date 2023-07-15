@@ -50,7 +50,7 @@
 
 [![Preview][product-screenshot]](#)<hr>
 
-Timer with pre-defined times of 5, 10 and 15 minutes. Choosing one of the time and by clicking the Play button you can perform your activities and your system will notify you as soon as time is exhausted
+Timer with preset times of 5, 10 and 15 minutes. By choosing one of the times and clicking on the Play button, you will be able to carry out your activities and your system will notify you as soon as the time is up, in addition to being notified every 30 seconds to have a better control of how much time is left.
 
 ### Built With
 
@@ -129,7 +129,7 @@ Project Link: [https://github.com/SilasRodrigues19/Focus](https://github.com/Sil
 [license-shield]: https://img.shields.io/github/license/SilasRodrigues19/Focus.svg?style=for-the-badge
 [license-url]: https://github.com/SilasRodrigues19/Focus/blob/master/LICENSE
 [license-url]: https://github.com/SilasRodrigues19/Focus/blob/master/LICENSE.txt
-[product-screenshot]: ./public/screenshots/preview.png
+[product-screenshot]: ./public/screenshots/preview.gif
 
 <br><hr>
 [🔼 Back to top](#Focus-Timer)
