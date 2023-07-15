@@ -4,6 +4,7 @@ const longTime = 15;
 
 const timerElement = document.querySelector('#timer');
 const playPauseButton = document.querySelector('#playPauseButton');
+const controlButtons = document.querySelectorAll('.controls-btn');
 const stopButton = document.querySelector('#stopButton');
 const shortTimeButton = document.querySelector('#shortTimeButton');
 const mediumTimeButton = document.querySelector('#mediumTimeButton');
@@ -189,8 +190,10 @@ playPauseButton.addEventListener('click', () => {
 
     if (Notification.permission !== 'granted') {
       playPauseButton.textContent = 'Requesting Permission...';
+      controlButtons.forEach((item) => item.classList.add('mx-auto', 'my-1', 'block'))
       Notification.requestPermission().then((permission) => {
         playPauseButton.textContent = 'Pause';
+        controlButtons.forEach((item) => item.classList.remove('mx-auto', 'my-1', 'block'))
         time = duration;
         startTimer();
         isRunning = true;
@@ -231,6 +234,7 @@ playPauseButton.addEventListener('click', () => {
       resumeTimer();
     }
   }
+
 });
 
 const animateButton = () => {
@@ -300,4 +304,21 @@ const enableButtons = () => {
 stopButton.addEventListener('click', () => {
   stopTimer();
   updateInformation();
+});
+
+
+document.addEventListener('DOMContentLoaded', function () {
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker
+      .register('/src/scripts/service-worker.js')
+      .then(function (registration) {
+        console.log('Service Worker successfully registered:', registration);
+      })
+      .catch(function (err) {
+        console.log('Failed to register the Service Worker:', err);
+      });
+      setTimeout(() => {
+        console.clear();
+      }, 3000);
+  }
 });
