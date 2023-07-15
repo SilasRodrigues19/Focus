@@ -4,8 +4,8 @@ self.addEventListener('install', function (e) {
       return cache.addAll([
         '/coffee.svg',
         '/favicon.svg',
-        '/src/scripts/main.js',
-        '/src/styles/style.css',
+        //'/src/scripts/main.js',
+        //'/src/styles/style.css',
       ]);
     })
   );
