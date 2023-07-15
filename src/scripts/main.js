@@ -310,15 +310,13 @@ stopButton.addEventListener('click', () => {
 document.addEventListener('DOMContentLoaded', function () {
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker
-      .register('/src/scripts/service-worker.js')
+      .register('/service-worker.js')
       .then(function (registration) {
         console.log('Service Worker successfully registered:', registration);
       })
       .catch(function (err) {
         console.log('Failed to register the Service Worker:', err);
       });
-      setTimeout(() => {
-        console.clear();
-      }, 3000);
+ 
   }
 });

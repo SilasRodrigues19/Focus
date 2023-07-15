@@ -3,7 +3,7 @@ self.addEventListener('install', function (e) {
     caches.open('focus-cache').then(function (cache) {
       return cache.addAll([
         '/coffee.svg',
-        '/favicon',
+        '/favicon.svg',
         '/src/scripts/main.js',
         '/src/styles/style.css',
       ]);
