@@ -1,0 +1,58 @@
+{
+  "name": "Focus Timer",
+  "short_name": "Focus",
+  "description": "A simple timer project with system notification.",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f1f1f1",
+  "theme_color": "#1A202C",
+  "categories": [
+    "tools",
+    "productivity",
+    "utilities"
+  ],
+  "icons": [
+    {
+      "src": "./logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "./public/screenshots/preview.png",
+      "sizes": "1920x932",
+      "type": "image/png",
+      "platform": "wide"
+    }
+  ],
+  "start_url": "https://focus-x.vercel.app",
+  "scope": "./",
+  "related_applications": [
+    {
+      "platform": "web"
+    }
+  ],
+  "launch_handler": {
+    "client_mode": [
+      "navigate-existing",
+      "auto"
+    ]
+  },
+  "display_override": [
+    "window-controls-overlay",
+    "standalone",
+    "browser"
+  ],
+  "scope_extensions": [
+    {
+      "origin": "https://focus-x.vercel.app"
+    },
+    {
+      "origin": "*.vercel.app"
+    }
+  ],
+  "prefer_related_applications": true,
+  "id": "/"
+}
